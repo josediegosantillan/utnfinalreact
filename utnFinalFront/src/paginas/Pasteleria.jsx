@@ -3,7 +3,7 @@ function Pasteleria() {
   return (
     <PaginaDeProductos 
       categoria="Pastelería" 
-      hoja="PASTELERIA" // nombre de la hoja en tu Google Sheet
+      hoja="PASTELERIA" // nombre hoja
     />
   );
 }

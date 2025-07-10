@@ -15,7 +15,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 function ProductoItem({ product, onMasMenos, onOpenDetails, cantidadEnCarrito }) {
-  const theme = useTheme(); // Hook para acceder al tema
+  const theme = useTheme();
   const { id, nombre, precio, imagen, descripcion, tipo } = product;
 
   const formatoNumero = new Intl.NumberFormat('es-AR', {

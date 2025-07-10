@@ -40,7 +40,7 @@ const TemaPersonalizado = createTheme({
       fontWeight: 700,
     },
   },
-  spacing: 8, // Define la unidad de espaciado (8px por defecto, pero podés cambiarla)
+  spacing: 8, // Define la unidad de espaciado
 });
 
 export default TemaPersonalizado;

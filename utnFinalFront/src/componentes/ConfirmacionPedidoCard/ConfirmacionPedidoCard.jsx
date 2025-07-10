@@ -1,7 +1,6 @@
 import {
   Card,
   CardContent,
-  CardMedia, // Opcional, si quieres una imagen de confirmación
   Typography,
   Button,
   Divider,
@@ -14,7 +13,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 
 function ConfirmacionPedidoCard({ pedido, onClose }) {
-  // Aseguramos que 'pedido' y 'pedido.items' existan antes de usarlos
+  // Aseguramos que pedido y pedido.items existan antes de usarlos
   if (!pedido || !pedido.items || pedido.items.length === 0) {
     return (
       <Box sx={{ p: 3, textAlign: 'center' }}>
@@ -35,10 +34,10 @@ function ConfirmacionPedidoCard({ pedido, onClose }) {
   return (
     <Card
       sx={{
-        maxWidth: 450, // Un poco más grande para el resumen
+        maxWidth: 450,
         width: '100%',
         borderRadius: 3,
-        boxShadow: 8, // Mayor elevación para que se destaque
+        boxShadow: 8, 
         position: 'relative',
       }}
     >
@@ -63,20 +62,12 @@ function ConfirmacionPedidoCard({ pedido, onClose }) {
         <CloseIcon />
       </IconButton>
 
-      {/* Puedes agregar una imagen de confirmación aquí si quieres */}
-      {/* <CardMedia
-        component="img"
-        height="140"
-        image="/path/to/confirmation-image.png" // Reemplaza con tu imagen
-        alt="Pedido Confirmado"
-      /> */}
-
       <CardContent sx={{ padding: 3 }}>
         <Typography
           gutterBottom
           variant="h4"
           component="div"
-          sx={{ fontWeight: 'bold', color: 'success.main', mb: 2 }} // Color verde para éxito
+          sx={{ fontWeight: 'bold', color: 'success.main', mb: 2 }} 
         >
           ¡Pedido Realizado!
         </Typography>

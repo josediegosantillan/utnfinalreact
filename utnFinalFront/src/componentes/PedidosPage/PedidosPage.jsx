@@ -1,7 +1,7 @@
 // src/pages/PedidosPage.jsx
 import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
-import HistorialPedidos from '../historialPedidos/HistorialPedidos'; // Ajusta la ruta si es necesario
+import HistorialPedidos from '../historialPedidos/HistorialPedidos';
 
 function PedidosPage() {
   
@@ -38,7 +38,7 @@ function PedidosPage() {
           Historial de Compras
         </Typography>
       </Box>
-      {/* El componente HistorialPedidos se renderiza directamente aquí */}
+      
       <HistorialPedidos />
     </Container>
   );

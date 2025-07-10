@@ -1,5 +1,3 @@
-// src/App.js o src/index.js
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom'; // <--- ¡Importamos BrowserRouter!

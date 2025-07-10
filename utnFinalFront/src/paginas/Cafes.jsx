@@ -4,7 +4,7 @@ function Cafes() {
   return (
     <PaginaDeProductos 
       categoria="Café" 
-      hoja="CAFE" // poner aca el nombre de la hoja
+      hoja="CAFE" // poner aca el nombre de la hoja :)
     />
   );
 }

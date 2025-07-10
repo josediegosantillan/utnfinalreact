@@ -7,7 +7,6 @@ import Pasteleria from './paginas/Pasteleria';
 import Busqueda from './paginas/busqueda';
 import MenuNavInferior from './componentes/menuNavInferior/menuNavInferior';
 import PedidosPage from './componentes/PedidosPage/PedidosPage';
-
 function App() {
   return (
     <>

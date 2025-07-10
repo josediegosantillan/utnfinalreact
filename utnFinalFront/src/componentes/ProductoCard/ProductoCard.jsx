@@ -50,14 +50,14 @@ function ProductoCard({ producto, onCloseDetails }) {
           position: 'absolute', // Posicionamiento absoluto respecto a la Card
           right: 8, // A 8px del borde derecho
           top: 8,   // A 8px del borde superior
-          color: (theme) => theme.palette.grey[600], // Un gris oscuro para que resalte
-          backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fondo semitransparente blanco
+          color: (theme) => theme.palette.grey[600],
+          backgroundColor: 'rgba(255, 255, 255, 0.7)',
           '&:hover': {
-            backgroundColor: 'rgba(255, 255, 255, 0.9)', // Más opaco al pasar el mouse
+            backgroundColor: 'rgba(255, 255, 255, 0.9)', 
             color: (theme) => theme.palette.grey[900],
           },
-          zIndex: 2, // Asegura que esté por encima de la imagen y contenido
-          borderRadius: '50%', // Botón redondo
+          zIndex: 2, 
+          borderRadius: '50%', 
           p: 0.5 // Padding interno del IconButton
         }}
       >
