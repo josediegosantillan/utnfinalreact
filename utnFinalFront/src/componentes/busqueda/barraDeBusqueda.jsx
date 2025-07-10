@@ -8,15 +8,19 @@ import {
   Typography,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+
 function BarraDeBusqueda({ onSearch, searchTerm: initialSearchTerm = '' }) {
   const [localSearchTerm, setLocalSearchTerm] = useState(initialSearchTerm);
+
   const handleSearchChange = (event) => {
     setLocalSearchTerm(event.target.value);
   };
+
   const handleSearchSubmit = (event) => {
     event.preventDefault(); // Evita que el formulario recargue la página
     onSearch(localSearchTerm);
   };
+
   return (
     <Paper elevation={3} sx={{ p: 2, mb: 3, mt: 2, borderRadius: 2 }}>
       <form onSubmit={handleSearchSubmit}>
@@ -35,9 +39,16 @@ function BarraDeBusqueda({ onSearch, searchTerm: initialSearchTerm = '' }) {
               </InputAdornment>
             ),
           }}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: 2,
+          slotProps={{
+            // 'root' se refiere al contenedor principal del Input (MuiOutlinedInput-root)
+            root: {
+              sx: {
+                borderRadius: 2,
+                backgroundColor: '#f0f0f0',
+                '&:hover fieldset': {
+                borderColor: 'blue !important',
+                },
+              },
             },
           }}
         />

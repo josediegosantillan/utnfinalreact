@@ -6,10 +6,9 @@ import BakeryDiningIcon from '@mui/icons-material/BakeryDining';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocalCafeRoundedIcon from '@mui/icons-material/LocalCafeRounded';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-import SearchIcon from '@mui/icons-material/Search'; // <-- ¡NUEVO IMPORT!
+import SearchIcon from '@mui/icons-material/Search';
 import Box from '@mui/material/Box';
-
-const indiceNav = ['/cafes', '/pasteleria', '/vegano', '/pedido', '/buscar']; 
+const indiceNav = ['/cafes', '/pasteleria', '/vegano', '/pedido', '/buscar'];
 function MenuNavInferior() {
   const navegar = useNavigate();
   const location = useLocation();
@@ -21,8 +20,9 @@ function MenuNavInferior() {
       setValue(indiceActual);
     } else {
       setValue(0);
+      navegar('/cafes');
     }
-  }, [location.pathname]);
+  }, [location.pathname, navegar]);
 
   return (
     <Box
@@ -41,11 +41,7 @@ function MenuNavInferior() {
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
-          if (indiceNav[newValue]) {
-            navegar(indiceNav[newValue]);
-          } else {
-            navegar('/cafes');
-          }
+          navegar(indiceNav[newValue] || '/cafes');
         }}
         sx={{
           '.Mui-selected': {
@@ -53,13 +49,38 @@ function MenuNavInferior() {
             fontWeight: 'bold',
           },
           '.MuiBottomNavigationAction-label': {
-            fontSize: '1rem',
-          },
-          '.MuiBottomNavigationAction-root': {
-            fontSize: '1.2rem',
+            fontSize: '0.8rem', // Estilo base para pantallas muy chicas
+            // 'sm' (600px) y más grandes
+            '@media (min-width:600px)': {
+              fontSize: '1rem',
+            },
+            // Media query para pantallas 'md' (900px) y más grandes
+            '@media (min-width:900px)': {
+              fontSize: '1.1rem',
+            },
           },
           '.MuiSvgIcon-root': {
-            fontSize: '1.6rem',
+            fontSize: '1.4rem', // Estilo base para pantallas muy chicas
+            // Media query para pantallas 'sm' (600px) y más grandes
+            '@media (min-width:600px)': {
+              fontSize: '1.6rem',
+            },
+            // Media query para pantallas 'md' (900px) y más grandes
+            '@media (min-width:900px)': {
+              fontSize: '1.8rem',
+            },
+          },
+          '.MuiBottomNavigationAction-root': {
+            minWidth: 'auto',
+            padding: '6px 4px', // Padding base más compacto
+            // Media query para pantallas 'sm' (600px) y más grandes
+            '@media (min-width:600px)': {
+              padding: '6px 8px',
+            },
+            // Media query para pantallas 'md' (900px) y más grandes
+            '@media (min-width:900px)': {
+              padding: '8px 12px',
+            },
           },
         }}
       >
@@ -67,10 +88,9 @@ function MenuNavInferior() {
         <BottomNavigationAction label="Pasteleria" icon={<BakeryDiningIcon />} />
         <BottomNavigationAction label="Vegano" icon={<RestaurantIcon />} />
         <BottomNavigationAction label="Ver Pedido" icon={<ShoppingCartIcon />} />
-        <BottomNavigationAction label="Buscar" icon={<SearchIcon />} /> {/* <-- ¡NUEVA ACCIÓN! */}
+        <BottomNavigationAction label="Buscar" icon={<SearchIcon />} />
       </BottomNavigation>
     </Box>
   );
 }
 export default MenuNavInferior;
-
