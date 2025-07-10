@@ -1,0 +1,45 @@
+MUI te da props directos para las propiedades Flexbox más comunes en el Grid container:
+
+justifyContent: Controla la alineación de los ítems en el eje principal (horizontal por defecto).
+
+'flex-start' (por defecto)
+
+'center'
+
+'flex-end'
+
+'space-between'
+
+'space-around'
+
+'space-evenly'
+
+alignItems: Controla la alineación de los ítems en el eje secundario (vertical por defecto).
+
+'flex-start'
+
+'center'
+
+'flex-end'
+
+'stretch' (por defecto)
+
+'baseline'
+
+direction: Cambia la dirección del eje principal.
+
+'row' (por defecto, horizontal)
+
+'column' (vertical)
+
+'row-reverse'
+
+'column-reverse'
+
+wrap: Controla si los ítems se envuelven en una nueva línea.
+
+'nowrap' (por defecto)
+
+'wrap'
+
+'wrap-reverse'
