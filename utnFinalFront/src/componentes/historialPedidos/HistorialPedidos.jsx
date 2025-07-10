@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import useCarrito from '../carrito/carrito';
+
 function HistorialPedidos() {
   const { pedidosRealizados } = useCarrito();
   const formatoNumero = new Intl.NumberFormat('es-AR', {
@@ -21,7 +22,6 @@ function HistorialPedidos() {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
-
   return (
     <Paper elevation={4} sx={{ p: 3, maxWidth: 600, mx: 'auto', mt: 4, borderRadius: 2 }}>
       <Box sx={{ mb: 3 }}>
@@ -29,7 +29,6 @@ function HistorialPedidos() {
           Tus Compras Anteriores
         </Typography>
       </Box>
-
       <Divider sx={{ mb: 3 }} />
       {pedidosRealizados.length === 0 ? (
         <Typography variant="body1" color="text.secondary" sx={{ textAlign: 'center', py: 4 }}>
@@ -46,19 +45,30 @@ function HistorialPedidos() {
                 sx={{
                   bgcolor: 'action.hover',
                   borderRadius: 1,
+                  // Estilos para el contenido interno del AccordionSummary (que es un flex container)
                   '& .MuiAccordionSummary-content': {
+                    display: 'flex', // Aseguramos que sea flex
                     alignItems: 'center',
                     justifyContent: 'space-between',
+                    flexWrap: 'wrap', 
+                    gap: 1, 
+                    minWidth: 0,
                   },
                 }}
               >
-                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
-                  Pedido ID: {pedido.id}
-                </Typography>
-                <Typography variant="subtitle2" color="text.secondary" sx={{ ml: 2 }}>
-                  {pedido.fecha}
-                </Typography>
-                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'primary.dark', ml: 'auto' }}>
+                {/* Contenedor para el Pedido ID y la fecha/hora */}
+                <Box sx={{ display: 'flex', flexDirection: 'column', minWidth: 0, flexShrink: 1, pr: 1 }}> {/* pr para padding-right */}
+                  <Typography variant="subtitle1" sx={{ fontWeight: 'bold', wordBreak: 'break-all', minWidth: 0, flexGrow: 1 }}> {/* Aplicamos wordBreak aquí */}
+                    Pedido ID: {pedido.id}
+                  </Typography>
+                  {/* Combino fecha y hora para que se muestren juntos */}
+                  <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5 }}>
+                    {new Date(pedido.fecha).toLocaleDateString('es-AR', { day: '2-digit', month: '2-digit', year: 'numeric' })} - {new Date(pedido.fecha).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })}
+                  </Typography>
+                </Box>
+
+                {/* Typography para el Total */}
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'primary.dark', ml: 'auto', flexShrink: 0 }}> {/* ml: 'auto' para empujar al final */}
                   Total: {formatoNumero.format(pedido.total)}
                 </Typography>
               </AccordionSummary>

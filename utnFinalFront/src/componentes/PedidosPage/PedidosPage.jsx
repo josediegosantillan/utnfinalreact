@@ -4,8 +4,7 @@ import { Container, Typography, Box } from '@mui/material';
 import HistorialPedidos from '../historialPedidos/HistorialPedidos'; // Ajusta la ruta si es necesario
 
 function PedidosPage() {
-  // No necesitamos 'onClose' aquí porque este componente es la "página" del historial.
-  // El usuario navegará fuera de esta página para cerrarlo.
+  
   return (
     <Container maxWidth="lg" sx={{ pt: 4, pb: 10 }}>
       <Box
