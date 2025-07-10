@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 import Cafes from './paginas/Cafes';
-import Vegano from './paginas/vegano';
+import Vegano from './paginas/Vegano';
 import Pasteleria from './paginas/Pasteleria';
 import Busqueda from './paginas/busqueda';
 import MenuNavInferior from './componentes/menuNavInferior/menuNavInferior';
